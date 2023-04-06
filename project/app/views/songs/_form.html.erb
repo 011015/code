@@ -1,0 +1,43 @@
+<%= form_with(model:song) do |form| %>
+  <% if song.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(song.errors.count, "error") %> prohibited this song from being saved:</h2>
+      <ul>
+        <% song.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="main-content">
+    <%= form.label :名称, style: "display: block" %>
+    <%= form.text_field :名称 %>
+  </div>
+
+  <div class="main-content">
+    <%= form.label :演唱, style: "display: block" %>
+    <%= form.text_field :演唱 %>
+  </div>
+
+  <div class="main-content">
+    <%= form.label :作词, style: "display: block" %>
+    <%= form.text_field :作词 %>
+  </div>
+
+  <div class="main-content">
+    <%= form.label :作曲, style: "display: block" %>
+    <%= form.text_field :作曲 %>
+  </div>
+
+  <div class="main-content">
+    类型
+    <%= form.collection_radio_buttons :song_type_id, SongType.all, :id, :名称 do |b| %>
+      <%= b.label{ b.radio_button + b.text } %>
+    <% end %>
+  </div>
+
+  <div class="main-content">
+    <%= form.submit class:"click_button" %>
+  </div>
+<% end %>

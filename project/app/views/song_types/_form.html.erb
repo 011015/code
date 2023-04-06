@@ -1,0 +1,22 @@
+<%= form_with(model: song_type) do |form| %>
+  <% if song_type.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(song_type.errors.count, "error") %> prohibited this song_type from being saved:</h2>
+
+      <ul>
+        <% song_type.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="main-content">
+    <%= form.label :名称, style: "display: block" %>
+    <%= form.text_field :名称 %>
+  </div>
+
+  <div class="main-content">
+    <%= form.submit class:"click_button" %>
+  </div>
+<% end %>

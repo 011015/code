@@ -1,0 +1,42 @@
+<% if false %>
+<div id="<%= dom_id comment %>">
+  <p>
+    <strong>内容:</strong>
+    <%= comment.内容 %>
+  </p>
+
+</div>
+<% end %>
+<div class="Comment_one">
+  <div class="Comment_user clearfix">
+    <div class="Comment_user_avatar">
+      <%= image_tag comment.manipulator.头像.图片 %>
+    </div>
+    <div class="Comment_user_info">
+      <p class="Comment_username"><%= comment.manipulator.名称 %></p>
+      <p class="Comment_date"><%= time_ago_in_words(comment.created_at) %></p>
+    </div>
+  </div>
+  <p class="Comment_content" id="comment-<%= comment.id %>">
+    <%= comment.内容 %>
+  </p>
+  <div class="button">
+    <%= button_to "删除", [@song, comment], method: :delete, class: "delete_button" %>
+    <button class="report_button" value="report-<%= comment.id %>">举报</button>
+  </div>
+
+  <%= form_for [@song, comment, Report.new] do |f| %>
+    <div class="Comment_Block reply_block" id="report-<%= comment.id %>">
+    <div class="Input_Box">
+        <%= f.text_area :内容, placeholder: "评论内容", maxlength: "500", class: "Input_text" %>
+        <div class="faceDiv"></div>
+        <div class="Input_Foot">
+            <a class="imgBtn" href="javascript:void(0);"></a>
+            <%= f.submit "举报", class: "postBtn" %>
+            <div class="Input_tips">还可以输入<span class="tips_word">500</span>字符</div>
+        </div>
+    </div>
+    </div>
+  <% end %>
+
+</div>

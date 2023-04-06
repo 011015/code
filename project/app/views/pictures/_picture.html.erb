@@ -1,0 +1,12 @@
+<% if false %>
+<div id="<%= dom_id picture %>">
+  <p>
+    <%= image_tag picture.图片 %>
+  </p>
+</div>
+<% end %>
+<div class="button">
+<a href="/assets/<%= picture.图片 %>" download class="download_button">下载</a>
+<%= button_to "删除", [@song, picture], method: :delete, class: "delete_button" %>
+</div>
+<%= image_tag picture.图片 %>

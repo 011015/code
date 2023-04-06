@@ -1,0 +1,146 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    padding-top: 100px;
+    box-sizing: border-box;
+    background: url(assets/background2.jpg) no-repeat center;
+    background-size: 100% 100%;
+}
+button {
+    margin: 0;
+    padding: 0;
+    border: 1px solid transparent;
+    cursor: pointer;
+}
+.main {
+    width: 1200px;
+    margin: 0 auto;
+    background: rgba(254, 225, 159, 0.3);
+    transform: translate(0,20%);
+}
+
+.main .title {
+    height: 70px;
+}
+
+.main .title h1 {
+    display: block;
+    height: 70px;
+    text-align: center;
+    line-height: 70px;
+    font-size: 30px;
+    border-bottom: 1px solid #b09a63;
+}
+.main .content {
+    padding-bottom: 10px;
+}
+.main .content form>div {
+    width: 1200px;
+    height: 30px;
+    margin-top: 10px;
+    line-height: 30px;
+}
+
+.main .content>div {
+    width: 1200px;
+    height: 30px;
+    margin-top: 10px;
+    line-height: 30px;
+}
+
+.main .content form>div .div1 {
+    width: 100px;
+    margin: 0;
+    margin-left: 500px;
+    float: left;
+}
+
+.div1>span {
+    line-height: 30px;
+}
+
+.main .content form>div .div2 {
+    margin: 0;
+    width: 600px;
+    float: left;
+}
+.div2>input {
+    margin: 5px 0;
+}
+
+.main .content form>div .submit1 {
+    font-size: 17px;
+    color: black;
+    border: 1px solid #b09a63;
+    padding: 2px;
+    margin-left: 580px;
+    background: rgba(0, 0, 0, 0.0);
+    cursor: pointer;
+}
+
+.main .content div .submit2 {
+    font-size: 17px;
+    color: black;
+    border: 1px solid #b09a63;
+    padding: 2px;
+    margin-left: 564px;
+    background: rgba(0, 0, 0, 0.0);
+}
+
+.required {
+    color: red;
+    margin-right: 3px;
+}
+
+.link {
+    display: block;
+    height: 50px;
+    line-height: 50px;
+    color: #C9C9DD;
+    font-size: 15px;
+    padding: 0 10px;
+    text-align: center;
+    background-color: #2C2120;
+}
+
+.link-title {
+    color: #EBC26E;
+    background-color: #3d3433;
+}
+
+.link:hover {
+    color: #EBC26E;
+    background-color: #3d3433;
+}
+.nav {
+    position: absolute;
+    top: 200px;
+}
+.show-button {
+    display: inline-block;
+    height: 20px;
+    font: 14px "微软雅黑", Arial, Helvetica, sans-serif;
+    padding: 0 10px;
+    background-color: #fff;
+    border: 1px solid #e3873e;
+    border-radius: 10px;
+    color: #e3873e;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+
+.button-active, .show-button:hover {
+    background-color: #e3873e;
+    color: #fff;
+}

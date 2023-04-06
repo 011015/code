@@ -1,0 +1,39 @@
+<% if false %>
+<h1>Song types</h1>
+
+<div id="song_types">
+  <% @song_types.each do |song_type| %>
+    <%= render song_type %>
+    <p>
+      <%= link_to "Show this song type", song_type %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New song type", new_song_type_path %>
+<% end %>
+
+<% content_for :stylesheet do %>
+  <%= stylesheet_link_tag "song_type_index" %>
+<% end %>
+<% content_for :title do %>
+  <li><a href="<%= song_types_url %>" class="link title">首页</a></li>
+  <li><a href="<%= songs_url %>" class="link">曲谱</a></li>
+  <% if current_manipulatorid %>
+    <li><a href="<%= my_page_manipulators_url(current_manipulatorid) %>" class="link">我的主页</a></li>
+  <% end %>
+  <% if current_manipulatorid and current_manipulatortype == "管理员" %>
+    <li><a href="<%= reports_url %>" class="link">管理员界面</a></li>
+  <% end %>
+<% end %>
+<div class="body">
+<div style="width: 1200px; margin: auto;">
+<p style="color: green"><%= notice %></p>
+</div>
+<% @song_types.each do |song_type| %>
+    <%= render song_type %>
+<% end %>
+<div style="width: 1200px; margin: auto; padding-bottom: 20px;">
+<%= link_to "New song type", new_song_type_path, class:"click_button" %>
+</div>
+</div>

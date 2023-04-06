@@ -1,0 +1,194 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: #000;
+}
+
+button {
+    margin: 0;
+    padding: 0;
+    border: 1px solid transparent;
+    cursor: pointer;
+}
+
+html, body {
+    height: 100%;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #F1F1F1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #b1b1b1;
+    border-radius: 8px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #A1A1A1;
+    border-radius: 8px;
+}
+
+.outer {
+    height: 100%;
+    padding: 70px 0 0;
+    box-sizing: border-box;
+}
+
+.header {
+    margin: -70px 0 0;
+    height: 70px;
+    background-color: #2C2120;
+}
+
+.nav {
+    float: left;
+}
+
+.nav ul li {
+    float: left;
+}
+
+.nav ul li .link {
+    display: block;
+    height: 70px;
+    line-height: 70px;
+    color: #C9C9DD;
+    font-size: 18px;
+    padding: 0 20px;
+}
+
+.nav ul li .title {
+    color: #EBC26E;
+    background-color: #3d3433;
+}
+
+.nav ul li .link:hover {
+    color: #EBC26E;
+    background-color: #3d3433;
+}
+
+.search {
+    height: 70px;
+    float: right;
+}
+
+.search form .search1 {
+    float: left;
+    height: 40px;
+    margin: 15px 0;
+    padding-left: 15px;
+    background-color: #2C2120;
+    color: #C9C9DD;
+    line-height: 40px;
+}
+
+.search form label {
+    font-size: 16px;
+}
+
+.search form select {
+    color: #C9C9DD;
+    margin-left: 10px;
+    padding: 3px 5px;
+    font-size: 16px;
+    background: rgba(0, 0, 0, 0);
+}
+
+.search form option {
+    color: black;
+    margin-left: 10px;
+    padding: 3px 5px;
+    font-size: 16px;
+}
+
+.search form input {
+    color: #C9C9DD;
+    border: 1px solid #b09a63;
+    background-color: #2C2120;
+    padding: 3px 5px;
+    margin-left: 10px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.search form .search3 {
+    float: left;
+    height: 40px;
+    color: #C9C9DD;
+    border: 1px solid #b09a63;
+    background-color: #2C2120;
+    padding: 5px;
+    margin: 15px 20px 15px 0px;
+    cursor: pointer;
+}
+
+.main {
+    height: 100%;
+    overflow: auto;
+    background: url(assets/background1.jpg) no-repeat center;
+    background-size: 100% 100%;
+}
+
+.main table {
+    background: rgba(0, 0, 0, 0.6);
+}
+
+.main thead td {
+    font-size: 18px;
+    color: #000;
+}
+
+.main td {
+    color: #C9C9DD;
+    padding: 10px;
+    border-bottom: 1px solid #b09a63;
+    text-align: center;
+}
+
+.main td button {
+    color: #C9C9DD;
+    padding: 5px;
+    border: 1px solid #b09a63;
+    background: rgba(0, 0, 0, 0);
+}
+
+.main tbody td {
+    position: relative;
+}
+
+.main tbody td a {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    height: 100%;
+}
+
+.main tbody td span {
+    position: absolute;
+    color: #C9C9DD;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    padding: 0 5px;
+    box-sizing: border-box;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
