@@ -1,0 +1,48 @@
+.data
+str_0: .asciiz "\n"
+.text
+# 
+jal func_main_0
+li $v0, 10
+syscall
+# proc int main@0 0
+func_main_0:
+# decl int n@1
+# n@1 = getint()
+li $v0, 5
+syscall
+sw $v0, -4($sp)
+# decl var i@1 19241027
+addi $a1, $0, 19241027
+sw $a1, -8($sp)
+# $0@0 = n@1 % 4
+lw $a1, -4($sp)
+div $a2, $a1, 4
+mfhi $a2
+move $t0, $a2
+# $0@0 = $0@0 == 0
+seq $a2, $t0, 0
+move $t0, $a2
+# cmp $0@0 0 bne if_0_0
+bne $t0, $0, if_0_0
+# jump j if_0_1
+j if_0_1
+# if_0_0:
+if_0_0:
+# printf i@1
+lw $a0, -8($sp)
+li $v0, 1
+syscall
+# printf "\n"
+la $a0, str_0
+li $v0, 4
+syscall
+# jump j if_0_end
+j if_0_end
+# if_0_1:
+if_0_1:
+# if_0_end:
+if_0_end:
+# ret 0
+addi $v1, $0, 0
+jr $ra
