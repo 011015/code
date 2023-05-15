@@ -1,0 +1,217 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.Comment_Block {
+    width: 810px;
+    height: 152px;
+}
+
+.Comment_Block > img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid #EBC26E;
+    margin: 5px;
+    box-sizing: border-box;
+}
+
+.Input_Box {
+    width: 805px;
+    height: 140px;
+    border: 1px solid #ccc;
+    transition: border linear .2s, box-shadow linear .5s;
+    -moz-transition: border linear .2s, -moz-box-shadow linear .5s;
+    -webkit-transition: border linear .2s, -webkit-box-shadow linear .5s;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    background-color: #fff;
+    overflow: hidden;
+    position: absolute;
+    -moz-box-shadow: 0 0 5px #ccc;
+    -webkit-box-shadow: 0 0 5px #ccc;
+    box-shadow: 0 0 5px #ccc;
+}
+
+.Input_Box > textarea {
+    width: 795px;
+    height: 92px;
+    padding: 5px;
+    /*height: 71px;
+    padding: 5px 5px 0 5px;*/
+    outline: none;
+    border: 0px solid #fff;
+    resize: none;
+    font: 13px "微软雅黑", Arial, Helvetica, sans-serif;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+}
+
+.Input_Foot {
+    width: 100%;
+    height: 35px;
+    border-top: 1px solid #ccc;
+    background-color: #fff;
+    -moz-border-radius: 0 0 5px 5px;
+    -webkit-border-radius: 0 0 5px 5px;
+    border-radius: 0 0 5px 5px;
+    position: absolute;
+}
+
+.imgBtn {
+    float: left;
+    margin-top: 8px;
+    margin-left: 10px;
+    background-image: url(assets/imgs.png);
+    background-repeat: no-repeat;
+    background-position: 0 -13px;
+    height: 18px;
+    width: 20px;
+    cursor: pointer;
+}
+
+.imgBtn:active {
+    margin-top: 9px;
+}
+
+.imgBtn:hover {
+    background-position: 0 -31px;
+}
+
+.postBtn {
+    background: none;
+    outline: none;
+    border: none;
+    float: right;
+    font: 13px "微软雅黑", Arial, Helvetica, sans-serif;
+    color: #808080;
+    padding: 9px 20px 7px 20px;
+    border-left: 1px solid #ccc;
+    cursor: pointer;
+    -moz-border-radius: 0 0 5px 0;
+    -webkit-border-radius: 0 0 5px 0;
+    border-radius: 0 0 5px 0;
+}
+
+.postBtn:hover {
+    color: #333;
+    background-color: #efefef;
+}
+
+.postBtn:active {
+    padding: 10px 20px 6px 20px;
+}
+
+.faceDiv {
+    width: 810px;
+    height: 102px;
+    border-top: 1px solid #ccc;
+    position: absolute;
+    background-color: #fff;
+    -moz-border-radius: 5px 5px 0 0;
+    -webkit-border-radius: 5px 5px 0 0;
+    border-radius: 5px 5px 0 0;
+}
+
+.faceDiv > img {
+    border: 1px solid #ccc;
+    float: left;
+    margin-left: -1px;
+    margin-top: -1px;
+    position: relative;
+    width: 24px;
+    height: 24px;
+    padding: 3px 3px 3px 3px;
+    cursor: pointer;
+}
+
+.faceDiv > img:hover {
+    background-color: #efefef;
+}
+
+.faceDiv > img:active {
+    padding: 4px 3px 2px 3px;
+}
+
+.Input_tips {
+    float: right;
+    font: 13px "微软雅黑", Arial, Helvetica, sans-serif;
+    color: #808080;
+    padding: 9px 20px 7px 20px;
+    -moz-border-radius: 0 0 5px 0;
+    -webkit-border-radius: 0 0 5px 0;
+    border-radius: 0 0 5px 0;
+}
+
+.Comment, .Comment_all {
+    margin-bottom: 10px;
+}
+
+.Comment_one {
+    border-top: 1px solid #CDCDCD;
+}
+
+.Comment_user .Comment_user_avatar {
+    width: 50px;
+    height: 50px;
+    float: left;
+}
+
+.Comment_user .Comment_user_avatar > img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 4px solid #EBC26E;
+    margin: 5px;
+    box-sizing: border-box;
+}
+
+.Comment_user .Comment_user_info {
+    float: left;
+    height: 40px;
+    padding: 5px 0;
+}
+
+.Comment_user .Comment_user_info > p {
+    height: 20px;
+    margin-left: 5px;
+    text-align: left;
+}
+
+.reply_block {
+    display: none;
+}
+
+.Comment_header {
+    height: 30px;
+    line-height: 30px;
+    padding-bottom: 10px;
+}
+
+.Comment_header > img {
+    float: left;
+    height: 100%;
+    width: auto;
+}
+
+.Comment_header > span {
+    margin-left: 5px;
+}
+
+.Comment_content {
+    line-height: 24px;
+}
+
+.Comment_content > img {
+    width: 24px;
+    height: 24px;
+    vertical-align: bottom;
+}
+
+.Comment_date {
+    font-size: 14px;
+    color: #767575;
+}

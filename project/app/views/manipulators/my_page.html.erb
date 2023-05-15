@@ -1,0 +1,198 @@
+<% content_for :stylesheet do %>
+  <%= stylesheet_link_tag "header", "my_page", "form" %>
+<% end %>
+<div class="outer">
+<div class="header">
+<div class="nav">
+    <ul>
+      <li><a href="<%= song_types_url %>" class="link">首页</a></li>
+      <li><a href="<%= songs_url %>" class="link">曲谱</a></li>
+      <% if current_manipulatorid %>
+        <li><a href="<%= my_page_manipulators_url(current_manipulatorid) %>" class="link title">我的主页</a></li>
+      <% end %>
+      <% if current_manipulatorid and current_manipulatortype == "管理员" %>
+        <li><a href="<%= reports_url %>" class="link">管理员界面</a></li>
+      <% end %>
+    </ul>
+</div>
+<div style="width: 100px; height:70px; float: right;"></div>
+<div class="user">
+    <a href="#">
+        <% if current_manipulatorid %>
+          <%= image_tag current_manipulatorid.头像.图片 %>
+        <% end %>
+    </a>
+</div>
+<% unless current_manipulatorid %>
+  <div class="login">
+    <%= link_to '登录', user_login_manipulators_url, class: "link" %>
+  </div>
+  <div class="register">
+    <%= link_to '注册', user_register_manipulators_url, class: "link" %>
+  </div>
+<% else %>
+  <div class="register" style="margin:0 20px;">
+    <%= current_manipulatorid.名称 %>
+  </div>
+  <div class="login">
+    <%= link_to '登出', logout_manipulators_url, class: "link" %>
+  </div>
+<% end %>
+</div>
+
+<div class="body">
+<div class="main">
+    <img class="profile-cover" src="/assets/background4.jpg">
+    <div class="profile-avatar">
+        <%= image_tag @manipulator.头像.图片 %>
+    </div>
+    <div class="profile-name"><span><%= @manipulator.名称 %></span></div>
+    <div class="select-block1">
+        <button class="select-header1" value="mydata">修改资料</button>
+        <button class="select-header1" value="mynotice">我的通知(<%= unread_count %>)</button>
+    </div>
+</div>
+<div class="select-block2" id="mynotice">
+  <button class="select-header2" value="wait">未读</button>
+  <button class="select-header2" value="seen">已读</button>
+</div>
+<div id="mydata" class="container hide">
+    <div class="form">
+
+    <%= form_with model: @manipulator do |form| %>
+      <% if notice.class == Hash %>
+        <% notice.each do |key,values| %>
+          <p style="color: blue"><%= key %>
+          <% values.each do |value| %>
+            <%= value %>
+          <% end %>
+          </p>
+        <% end %>
+      <% else %>
+        <p style="color: blue"><%= notice %></p>
+      <% end %>
+        <div class="input-container clearfix">
+            <span class="form-header"><%= form.label :头像 %>:</span>
+            <span class="form-content"><%= form.file_field :头像 %></span>
+        </div>
+        <div class="input-container clearfix">
+            <span class="form-header"><%= form.label :名称 %>:</span>
+            <span class="form-content"><%= form.text_field :名称 %></span>
+        </div>
+        <div class="input-container clearfix">
+            <span class="form-header"><%= form.label :密码 %>:</span>
+            <span class="form-content"><%= form.password_field :密码 %><div class="show-button2">显示密码</div></span>
+        </div>      
+        <div>
+          <%= form.submit "修改", class:"submit1" %>
+        </div>
+    <% end %>
+    
+    </div>
+</div>
+
+<div id="mynotice-wait" class="hide">
+  <table class="select-content" width="100%" cellpadding="0" cellspacing="0">
+    <tbody>
+      <% @manipulator.notices.each do |notice| %>
+        <% if notice.wh状态 == "未读" %>
+          <tr>
+            <td>
+              <span>
+              <% if notice.类型 == "举报" %>
+                你<%= notice.类型 %>了<%= notice.manipulator.名称 %>的评论: 
+                <%= notice.内容 %>
+                原因: 
+                <%= notice.原因 %>
+              <% else %>
+                管理员<%= notice.类型 %>了你举报的评论:
+                <%= notice.内容 %>
+              <% end %>
+              </span>
+            </td>
+            <td>
+              <%= button_to "标为已读", manipulator_notice_path(current_manipulatorid, notice), name: "wh状态", value: "已读", method: :delete, class: "read-button" %>
+            </td>
+          </tr>
+        <% end %>
+      <% end %>
+      <% @manipulator.messages.each do |message| %>
+        <% if message.ma状态 == "未读" %>
+          <tr>
+            <td>
+              <span>
+              <% if message.类型 == "举报" %>
+                <%= message.whistleblower.名称 %><%= message.类型 %>了你的评论: 
+                <%= message.内容 %>
+                原因: 
+                <%= message.原因 %>
+              <% else %>
+                管理员<%= message.类型 %>了举报你的评论:
+                <%= message.内容 %>
+              <% end %>
+              </span>
+            </td>
+            <td>
+              <%= button_to "标为已读", manipulator_notice_path(current_manipulatorid, message), name: "ma状态", value: "已读", method: :delete, class: "read-button" %>
+            </td>
+          </tr>
+        <% end %>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+<div id="mynotice-seen" class="hide">
+<table class="select-content" width="100%" cellpadding="0" cellspacing="0">
+  <tbody>
+    <% @manipulator.notices.each do |notice| %>
+      <% if notice.wh状态 == "已读" %>
+      <tr>
+      <td>
+        <span>
+        <% if notice.类型 == "举报" %>
+          你<%= notice.类型 %>了<%= notice.manipulator.名称 %>的评论: 
+          <%= notice.内容 %>
+          原因: 
+          <%= notice.原因 %>
+        <% else %>
+          管理员<%= notice.类型 %>了你举报的评论:
+          <%= notice.内容 %>
+        <% end %>
+        </span>
+      </td>
+      <td>
+        <%= button_to "标为未读", manipulator_notice_path(current_manipulatorid, notice), name: "wh状态", value: "未读", method: :delete, class: "read-button" %>
+      </td>
+      </tr>
+      <% end %>
+    <% end %>
+    <% @manipulator.messages.each do |message| %>
+      <% if message.ma状态 == "已读" %>
+      <tr>
+      <td>
+        <span>
+        <% if message.类型 == "举报" %>
+          <%= message.whistleblower.名称 %><%= message.类型 %>了你的评论: 
+          <%= message.内容 %>
+          原因: 
+          <%= message.原因 %>
+        <% else %>
+          管理员<%= message.类型 %>了举报你的评论:
+          <%= message.内容 %>
+        <% end %>
+        </span>
+      </td>
+      <td>
+        <%= button_to "标为未读", manipulator_notice_path(current_manipulatorid, message), name: "ma状态", value: "未读", method: :delete, class: "read-button" %>
+      </td>
+      </tr>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>
+</div>
+
+</div>
+
+</div>

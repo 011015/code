@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="shortcut icon" href="/assets/查询.png" type="image/x-icon">
+    <title>曲谱交流平台</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= yield :stylesheet %>
+    <%= stylesheet_link_tag "header", "button", "comment" %>
+  </head>
+
+  <body>
+    <div class="outer">
+      <div class="header">
+        <div class="nav">
+            <ul>
+                <%= yield :title %>
+            </ul>
+        </div>
+        <div style="width: 100px; height:70px; float: right;"></div>
+        <% if current_manipulatorid %>
+          <div class="user">
+            <a href="<%= my_page_manipulators_url(current_manipulatorid) %>">
+                <% if unread_count > 0 %>
+                  <button class="unread_button"><span><%= unread_count %></span>条未读</button>
+                <% end %>
+                <%= image_tag current_manipulatorid.头像.图片 %>
+            </a>
+          </div>
+        <% end %>
+        <% unless current_manipulatorid %>
+          <div class="login">
+            <%= link_to '登录', user_login_manipulators_url, class: "link" %>
+          </div>
+          <div class="register">
+            <%= link_to '注册', user_register_manipulators_url, class: "link" %>
+          </div>
+        <% else %>
+          <div class="register" style="margin:0 20px;">
+            <%= current_manipulatorid.名称 %>
+          </div>
+          <div class="login">
+            <%= link_to '登出', logout_manipulators_url, class: "link" %>
+          </div>
+        <% end %>
+      </div>
+      <%= yield %> 
+    </div>
+    <%= yield :javascript %>
+  </body>
+</html>

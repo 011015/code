@@ -1,0 +1,15 @@
+<div id="<%= dom_id manipulator %>">
+  <p>
+    <strong>名称:</strong>
+    <%= manipulator.名称 %>
+  </p>
+
+  <p>
+    <strong>类型:</strong>
+    <%= manipulator.类型 %>
+  </p>
+
+  <div>
+    <%= button_to "Destroy this manipulator", manipulator, method: :delete, class:"click_button" %>
+  </div>
+</div>

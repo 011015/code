@@ -1,0 +1,144 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+button {
+    border: none;
+    outline: none;
+    background-color: rgba(0,0,0,0);
+    cursor: pointer;
+}
+html, body {
+    height: 100%;
+}
+
+.clearfix:before, .clearfix:after {
+    content: "";
+    display: table;
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+.clearfix {
+    *zoom: 1;
+}
+
+.outer {
+    height: 100%;
+    padding: 72px 0 0;
+    box-sizing: border-box;
+}
+
+.header {
+    margin: -72px 0 0;
+    height: 70px;
+    border-bottom: 2px solid #CDCDCD;
+}
+
+.nav {
+    float: left;
+}
+
+.nav ul li {
+    float: left;
+}
+
+.link {
+    display: block;
+    height: 70px;
+    line-height: 70px;
+    color: #2C2120;
+    font-size: 18px;
+    padding: 0 20px;
+}
+
+.nav ul li .title {
+    color: #EBC26E;
+    background-color: #3d3433;
+}
+
+.link:hover {
+    color: #EBC26E;
+    background-color: #3d3433;
+}
+
+.user {
+    height: 70px;
+    width: 70px;
+    line-height: 70px;
+    float: right;
+}
+.user>a {
+    position: relative;
+}
+.user>a .unread_button {
+    height: 20px;
+    width: 90px;
+    position: absolute;
+    bottom: 48px;
+    left: 42px;
+	font: 12px "微软雅黑", Arial, Helvetica, sans-serif;
+	padding: 0 10px;
+	background-color: #e30808;
+	border-radius: 10px;
+	color: #fff;
+}
+
+.user img {
+    width: 70%;
+    height: 70%;
+    border-radius: 50%;
+    border: 4px solid #EBC26E;
+    margin: 15%;
+    box-sizing: border-box;
+}
+
+.login {
+    height: 70px;
+    line-height: 70px;
+    float: right;
+}
+
+.register {
+    height: 70px;
+    line-height: 70px;
+    float: right;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #F1F1F1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #b1b1b1;
+    border-radius: 8px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #A1A1A1;
+    border-radius: 8px;
+}
+
+.body {
+    min-height: 100%;
+    background-image: url(assets/background7.png);
+    background-size: 650px 650px;
+    background-color: #F6F6F6;
+    padding-top: 20px;
+    box-sizing: border-box;
+}

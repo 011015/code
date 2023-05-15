@@ -1,0 +1,9 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @manipulator %>
+
+<div>
+  <%= link_to "Edit this manipulator", edit_manipulator_path(@manipulator) %> |
+
+  <%= button_to "Destroy this manipulator", @manipulator, method: :delete %>
+</div>
