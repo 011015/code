@@ -65,4 +65,4 @@
 
 ### 注意
 
-本项目正在完成中，目前只是一个半成品，预计6月中可以完成，本项目在另一个仓库下会持续更新，可移步到https://github.com/011015/software-engineering。
+本项目正在完成中，目前只是一个半成品，预计6月中可以完成，本项目在另一个仓库下会持续更新，可移步到https://github.com/011015/software-engineering
